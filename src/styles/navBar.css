@@ -1,0 +1,20 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(240 249 255);
+    padding: 0.6rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(240 249 255);
+    padding: 1rem;
+    position: static;
+    bottom: 0;
+    margin-top: 2rem;
+}
