@@ -7,8 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './store';
 import { Provider } from 'react-redux';
 
-console.log(store.getState());
-
 // Call make Server
 makeServer();
 
