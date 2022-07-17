@@ -49,8 +49,11 @@ const authSlice = createSlice({
   name: "authentication",
   initialState,
   reducers: {
-    userLogout: () => {
+    userLogout: (state) => {
       localStorage.clear();
+      state.isLoggedIn = null;
+      state.user = null;
+      state.token = null
     },
   },
   extraReducers: {

@@ -27,7 +27,7 @@ export const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(loginHandler({ cred, navigate, location }));
-  };
+    };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
