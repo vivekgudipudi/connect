@@ -34,7 +34,7 @@ export const Home = () => {
 
 
 
-  return (
+  return isLoggedIn &&(
     <>
       <div className="container">
         <section className="section">
@@ -68,7 +68,7 @@ export const Home = () => {
             </Box> <div>
             <Typography>Suggested for you :</Typography>
             {users
-              .filter((a) => a.username !== user.username)
+              .filter((a) => a.username !== user?.username)
               .map((user) => (
                 <Link
                   style={{ textDecoration: "none" }}

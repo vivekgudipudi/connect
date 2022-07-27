@@ -65,7 +65,7 @@ const StyledMenu = styled((props) => (
 }));
 
 export const CommentCard = ({ comment }) => {
-  const { posts, users } = useSelector((store) => store.posts);
+  const { users } = useSelector((store) => store.posts);
   const { user, token } = useSelector((store) => store.auth);
   const { postID } = useParams();
   const dispatch = useDispatch();
@@ -75,7 +75,7 @@ export const CommentCard = ({ comment }) => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const [content, setContent] = useState();
+  const [content, setContent] = useState(comment.text);
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -133,9 +133,9 @@ export const CommentCard = ({ comment }) => {
         </MenuItem>
       </StyledMenu>
       <CardContent>
-        {!toggleEdit ? (
+        {!toggleEdit ? ( 
           <Typography variant="body2">{comment.text}</Typography>
-        ) : (
+        ) : ( 
           <div className="comment-box">
             <TextField
               value={content}

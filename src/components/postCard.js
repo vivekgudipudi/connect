@@ -112,7 +112,7 @@ export const PostCard = ({ data }) => {
     setAnchorEl(null);
   };
   const [toggleEdit, setToggleEdit] = useState(false);
-  const [content, setContent] = useState();
+  const [content, setContent] = useState(data.content);
 
   useEffect(() => {
     dispatch(getAllUsers());

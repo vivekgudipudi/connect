@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { PostCard } from "../../components/postCard";
 import { useSelector, useDispatch } from "react-redux";
 import { getBookmarks } from "./bookmarkSlice";
+import { Typography } from "../../styles/mui";
 
 export const Bookmark = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -24,6 +25,12 @@ export const Bookmark = () => {
             .slice()
             .reverse()
             .map((post) => <PostCard key={post._id} data={post} />)}
+
+        {bookmarks.length === 0 ? (
+          <Typography variant="h5"gutterBottom>
+            No bookmarks yet.
+          </Typography>
+        ) : null}
       </main>
     </div>
   );

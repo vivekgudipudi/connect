@@ -50,7 +50,7 @@ export const Profile = () => {
     if(window.URL){
     return window.URL.createObjectURL(profilePic)
   }
-   return null; 
+   return singleUser?.profileIMG; 
   }
 
   return (
@@ -192,7 +192,7 @@ export const Profile = () => {
                     dispatch(
                       editProfile({
                         token,
-                        data: { bio: bio, profileURL: URL, profileIMG : profileIMGhandler() },
+                        data: { bio: bio, profileURL: URL, profileIMG : profilePic ? profileIMGhandler() : singleUser?.profileIMG },
                       })
                     );
                     dispatch(getUser(username));

@@ -1,11 +1,14 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { PostCard } from "../../components/postCard";
 import { CommentCard } from "../../components/commentCard";
 import { addComment } from "../comments/commentsSlice";
 import { Box, Button, TextField } from "../../styles/mui";
+import {
+  getPosts
+} from "../posts/postSlice";
 
 export const Comments = () => {
   const dispatch = useDispatch();
@@ -15,6 +18,10 @@ export const Comments = () => {
   const { postID } = useParams();
   const postClicked = posts.filter((post) => post._id === postID);
   const [content, setContent] = useState();
+
+  useEffect(()=>{
+      dispatch(getPosts())
+  },[comments])
 
   return (
     <div className="container">

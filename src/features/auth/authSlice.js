@@ -3,8 +3,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoggedIn: localStorage.getItem("auth"),
-  user: JSON.parse(localStorage.getItem("user")),
-  token: localStorage.getItem("token"),
+  user: JSON.parse(localStorage.getItem("user")) ?? null,
+  token: localStorage.getItem("token") ?? null,
 };
 
 export const loginHandler = createAsyncThunk(
@@ -62,6 +62,7 @@ const authSlice = createSlice({
     },
     [loginHandler.fulfilled]: (state, action) => {
       state.isLoggedIn = true;
+      state.user = action.payload.foundUser;
       state.token = action.payload.encodedToken;
     },
     [loginHandler.rejected]: (state) => {
